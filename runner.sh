@@ -1,12 +1,19 @@
 #!/bin/bash
 
-# Setup Colors
+# Setup colors
 RED=$(printf '\033[31m')
 GREEN=$(printf '\033[32m')
 YELLOW=$(printf '\033[33m')
 BLUE=$(printf '\033[34m')
 BOLD=$(printf '\033[1m')
 RESET=$(printf '\033[m')
+
+# Setup settings
+ZSH_CUSTOM=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}
+RUNNER=${RUNNER:-~/.linux-runner}
+REPO=${REPO:-crealhex/linux-runner}
+REMOTE=${REMOTE:-https://github.com/${REPO}.git}
+BRANCH=${BRANCH:-master}
 
 cat << EOF
 
@@ -34,19 +41,13 @@ sudo apt install zsh tree -y
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 # Install powerlevel10k zsh theme
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
 
 # [REPLACE] ZSH_THEME="robbyrussell"
 sed -ri 's/(ZSH_THEME=")([a-zA-Z]+)(")/\1powerlevel10k\/powerlevel10k\3/g' ~/.zshrc
 
 # Change default shell to zsh
 chsh -s $(which zsh)
-
-# Ubuntu-Runner settings
-RUNNER=${RUNNER:-~/.linux-runner}
-REPO=${REPO:-crealhex/linux-runner}
-REMOTE=${REMOTE:-https://github.com/${REPO}.git}
-BRANCH=${BRANCH:-master}
 
 # Clone and copy my personal configuration
 git clone --depth=1 --branch "$BRANCH" "$REMOTE" "$RUNNER"
@@ -64,7 +65,7 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 # Add a method for fzf previews in .zshrc
 cat << EOF >> ~/.zshrc
 
-# adding some preview configs for fzf
+# Ddding some preview configs for fzf
 _fzf_comprun() {
   local command=\$1
   shift
@@ -79,14 +80,32 @@ _fzf_comprun() {
 
 EOF
 
-# Install plugin k
-sudo git clone https://github.com/supercrabtree/k $ZSH_CUSTOM/plugins/k
+# Install plugin hacker-quotes
+git clone https://github.com/oldratlee/hacker-quotes.git $ZSH_CUSTOM/plugins/hacker-quotes
 
-#Install plugin zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+# Install plugin k
+git clone https://github.com/supercrabtree/k $ZSH_CUSTOM/plugins/k
+
+# Install plugin zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+
+# Install plugin bgnotify
+git clone https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/bgnotify $ZSH_CUSTOM/plugins/bgnotify
 
 # Install plugin zsh-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
 cp ~/.linux-runner/configs/zsh-syntax-highlighting.zsh $ZSH_CUSTOM/plugins/zsh-syntax-highlighting/
+
+# Install enhancd
+git clone https://github.com/b4b4r07/enhancd ~/.enhancd
+echo "source ~/.enhancd/init.sh"  >> ~/.bash_profile
+
+cat << EOF >> ~/.zshrc
+# Disable highlighting of pasted text
+zle_highlight=('paste:none')
+EOF
+
+# Read all configs from fzf binary
+source ~/.fzf.zsh
 
 # cp /mnt/c/Users/warender/Desktop/ubuntu-runner/runner.sh .
