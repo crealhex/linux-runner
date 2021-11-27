@@ -6,7 +6,7 @@
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/crealhex/linux-runner/master/runner.sh)"
 ```
 
-![](https://github.com/crealhex/linux-runner/images/linux-runner.png)
+![](./images/linux-runner.png)
 
 A script which configures a fresh ubuntu installation based on my personal selection of plugins, themes and utilities.
 
