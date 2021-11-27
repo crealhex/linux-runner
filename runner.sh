@@ -22,20 +22,19 @@ BRANCH=${BRANCH:-master}
 
 cat << EOF
 
-Welcome to Linux Runner 1.2
-Running from ${YELLOW}`pwd`${RESET}
+                Welcome to Linux Runner 1.2
 
-${GREEN}Starting package installations...${RESET}
+Running from ${BOLD}${RED}`pwd`${RESET}
+${YELLOW}Starting package installations...${RESET}
 
 EOF
 
 sudo apt-get update
-# && apt-get upgrade -y
 
 cat << EOF
 
-Updates Finished
-${GREEN}Running terminal configurations...${RESET}
+${GREEN}Updates Finished${RESET}
+${YELLOW}Running terminal configurations...${RESET}
 
 EOF
 
@@ -53,7 +52,7 @@ sed -ri 's/(ZSH_THEME=")([a-zA-Z]+)(")/\1powerlevel10k\/powerlevel10k\3/g' ~/.zs
 
 cat << EOF
 
-    $🕜 {YELLOW}Time to change your default shell${RESET}
+    🕜 ${YELLOW}Time to change your default shell${RESET}
 
 EOF
 # Change default shell to zsh
@@ -123,6 +122,7 @@ zle_highlight=('paste:none')
 EOF
 
 cat << EOF
+
 ${GREEN}It's all DONE!!${RESET}
 
                😎 Thanks for using Linux Runner ✨
