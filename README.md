@@ -1,9 +1,18 @@
-# Ubuntu Runner
-Script que realiza una pre-configuración para distribuciones de ubuntu recién instaladas
+# Linux Runner
 
-Lo que este script hace es:
-- Actualiza los repositorios de Ubuntu
-- Instala ZSH
-- Instala el tema de Powerlevel10k para zsh
-- Establece configs predefinidas
-- Cambia la shell por defecto
+> To start, simply run this command:
+
+```
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/crealhex/linux-runner/master/runner.sh)"
+```
+
+![](https://github.com/crealhex/linux-runner/images/linux-runner.png)
+
+A script which configures a fresh ubuntu installation based on my personal selection of plugins, themes and utilities.
+
+What this script does is:
+- Updates Ubuntu repositories
+- Installs Oh-my-zsh
+- Installs the Powerlevel10k theme for zsh
+- Establishes predefined settings
+- Changes your default shell

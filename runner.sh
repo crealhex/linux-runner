@@ -113,13 +113,17 @@ git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/z
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
 cp ~/.linux-runner/configs/zsh-syntax-highlighting.zsh $ZSH_CUSTOM/plugins/zsh-syntax-highlighting/
 git clone https://github.com/b4b4r07/enhancd ~/.enhancd
-echo "source ~/.enhancd/init.sh"  >> ~/.bash_profile
 
 cat << EOF >> ~/.zshrc
+
+# Enable enhancd
+source ~/.enhancd/init.sh
 
 # Disable highlighting of pasted text
 zle_highlight=('paste:none')
 EOF
+
+rm -rf ~/.linux-runner
 
 cat << EOF
 
