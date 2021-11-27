@@ -79,14 +79,14 @@ _fzf_comprun() {
 
 EOF
 
+# Install plugin k
+sudo git clone https://github.com/supercrabtree/k $ZSH_CUSTOM/plugins/k
+
 #Install plugin zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 # Install plugin zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-cp ~/.linux-runner/zsh-syntax-highlighting.zsh $ZSH_CUSTOM/plugins/zsh-syntax-highlighting/
-
-# Install plugin k
-git clone https://github.com/supercrabtree/k $ZSH_CUSTOM/plugins/k
+cp ~/.linux-runner/configs/zsh-syntax-highlighting.zsh $ZSH_CUSTOM/plugins/zsh-syntax-highlighting/
 
 # cp /mnt/c/Users/warender/Desktop/ubuntu-runner/runner.sh .
