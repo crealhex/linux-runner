@@ -24,7 +24,7 @@ cat << EOF
 
               Welcome to Cereal Runner 1.2
 
-Running from ${BOLD}${RED}`pwd`${RESET}
+Running from ${GREEN}`pwd`${RESET}
 ${YELLOW}Starting package installations...${RESET}
 
 EOF
@@ -116,7 +116,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions \
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
     $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
 
-cp "$RUNNER/configs/custom/*" "$ZSH_CUSTOM/"
+cp $RUNNER/configs/custom/* "$ZSH_CUSTOM/"
 cp "$RUNNER/configs/zsh-syntax-highlighting.zsh" "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting/"
 git clone https://github.com/b4b4r07/enhancd ~/.enhancd
 
@@ -142,7 +142,7 @@ ${GREEN}It's all DONE!!${RESET}
 EOF
 
 # Copy route to test
-# cp /mnt/c/Users/warender/Desktop/ubuntu-runner/runner.sh .
+# cp /mnt/c/Users/warender/Desktop/cereal-runner/runner.sh .
 #
 # Nuevas cambios agregados a mi entorno de trabajo
 # Add /home/denisse/.oh-my-zsh/custom
