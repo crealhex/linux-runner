@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # This script should be run via curl:
-#   sh -c "$(curl -fsSL https://raw.githubusercontent.com/crealhex/linux-runner/master/runner.sh)"
+#   sh -c "$(curl -fsSL https://raw.githubusercontent.com/crealhex/cereal-runner/master/runner.sh)"
 #
 #
 
@@ -15,14 +15,14 @@ RESET=$(printf '\033[m')
 
 # Setup options
 ZSH_CUSTOM=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}
-RUNNER=${RUNNER:-~/.linux-runner}
-REPO=${REPO:-crealhex/linux-runner}
+RUNNER=${RUNNER:-~/.cereal-runner}
+REPO=${REPO:-crealhex/cereal-runner}
 REMOTE=${REMOTE:-https://github.com/${REPO}.git}
 BRANCH=${BRANCH:-master}
 
 cat << EOF
 
-                Welcome to Linux Runner 1.2
+              Welcome to Cereal Runner 1.2
 
 Running from ${BOLD}${RED}`pwd`${RESET}
 ${YELLOW}Starting package installations...${RESET}
@@ -60,8 +60,8 @@ chsh -s $(which zsh)
 
 # Clone and copy my personal configuration
 git clone --depth=1 --branch "$BRANCH" "$REMOTE" "$RUNNER"
-cp ~/.linux-runner/.p10k.zsh ~/
-cp ~/.linux-runner/.zshrc ~/
+cp $RUNNER/.p10k.zsh ~/
+cp $RUNNER/.zshrc ~/
 
 # Install latest bat release
 wget "https://github.com/sharkdp/bat/releases/download/v0.18.3/bat-musl_0.18.3_amd64.deb" -O bat_amd64.deb
@@ -107,11 +107,17 @@ cat << EOF
     ⬇️ ${YELLOW}Downloading some needed repos for you...${RESET}
 
 EOF
-git clone https://github.com/oldratlee/hacker-quotes.git $ZSH_CUSTOM/plugins/hacker-quotes
-git clone https://github.com/supercrabtree/k $ZSH_CUSTOM/plugins/k
-git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
-cp ~/.linux-runner/configs/zsh-syntax-highlighting.zsh $ZSH_CUSTOM/plugins/zsh-syntax-highlighting/
+git clone https://github.com/oldratlee/hacker-quotes.git \
+    $ZSH_CUSTOM/plugins/hacker-quotes
+git clone https://github.com/supercrabtree/k \
+    $ZSH_CUSTOM/plugins/k
+git clone https://github.com/zsh-users/zsh-autosuggestions \
+    $ZSH_CUSTOM/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git \
+    $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+
+cp "$RUNNER/configs/custom/*" "$ZSH_CUSTOM/"
+cp "$RUNNER/configs/zsh-syntax-highlighting.zsh" "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting/"
 git clone https://github.com/b4b4r07/enhancd ~/.enhancd
 
 cat << EOF >> ~/.zshrc
@@ -123,17 +129,25 @@ source ~/.enhancd/init.sh
 zle_highlight=('paste:none')
 EOF
 
-rm -rf ~/.linux-runner
+rm -rf $RUNNER
 
 cat << EOF
 
 ${GREEN}It's all DONE!!${RESET}
 
-               😎 Thanks for using Linux Runner ✨
+              😎 Thanks for using Cereal Runner ✨
             Restart your terminal to show the changes
                       with 💖 by Crealhex
 
 EOF
 
-# Copy route to tests
+# Copy route to test
 # cp /mnt/c/Users/warender/Desktop/ubuntu-runner/runner.sh .
+#
+# Nuevas cambios agregados a mi entorno de trabajo
+# Add /home/denisse/.oh-my-zsh/custom
+# - aliases.zsh
+# - paths.zsh
+# - profile.zsh
+#
+# Configuración de user.email y user.name para git

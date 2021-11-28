@@ -1,12 +1,12 @@
-# Linux Runner
+# Cereal Runner
 
 > To start, simply run this command:
 
 ```
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/crealhex/linux-runner/master/runner.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/crealhex/cereal-runner/master/runner.sh)"
 ```
 
-![](./images/linux-runner.png)
+![](./images/cereal-runner.png)
 
 A script which configures a fresh ubuntu installation based on my personal selection of plugins, themes and utilities.
 
