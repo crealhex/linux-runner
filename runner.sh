@@ -64,8 +64,8 @@ cp $RUNNER/.p10k.zsh ~/
 cp $RUNNER/.zshrc ~/
 
 # Install latest bat release
-wget "https://github.com/sharkdp/bat/releases/download/v0.18.3/bat-musl_0.18.3_amd64.deb" -O bat_amd64.deb
-sudo dpkg -i bat_amd64.deb && rm $_
+wget "https://github.com/sharkdp/bat/releases/download/v0.18.3/bat-musl_0.18.3_amd64.deb" -O ~/bat_amd64.deb
+sudo dpkg -i ~/bat_amd64.deb && rm ~/$_
 
 cat << EOF
 
