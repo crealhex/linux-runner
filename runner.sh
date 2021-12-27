@@ -39,7 +39,7 @@ ${YELLOW}Running terminal configurations...${RESET}
 EOF
 
 # Install some general packages
-sudo apt install zsh tree -y
+sudo apt install zsh tree git curl -y
 
 # Install zsh package
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
@@ -64,8 +64,8 @@ cp $RUNNER/.p10k.zsh ~/
 cp $RUNNER/.zshrc ~/
 
 # Install latest bat release
-wget "https://github.com/sharkdp/bat/releases/download/v0.18.3/bat-musl_0.18.3_amd64.deb" -O ~/bat_amd64.deb
-sudo dpkg -i ~/bat_amd64.deb && rm ~/$_
+curl "https://github.com/sharkdp/bat/releases/download/v0.18.3/bat-musl_0.18.3_amd64.deb" -Lo ~/bat_amd64.deb
+sudo dpkg -i ~/bat_amd64.deb && rm ~/bat_amd64.deb
 
 cat << EOF
 
@@ -149,5 +149,5 @@ EOF
 # - aliases.zsh
 # - paths.zsh
 # - profile.zsh
-#
+# - .gitconfig
 # Configuración de user.email y user.name para git
