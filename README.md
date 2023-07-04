@@ -3,7 +3,7 @@
 > To start, simply run this command:
 
 ```
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/crealhex/cereal-runner/master/runner.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/crealhex/wsl-cereal-runner/master/runner.sh)"
 ```
 
 ![](./images/cereal-runner.png)
